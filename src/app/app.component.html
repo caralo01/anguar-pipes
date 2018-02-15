@@ -1,0 +1,168 @@
+<div class="container">
+  <br>
+  <h1>Pipes</h1>
+  <hr>
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Variable</th>
+        <th>Pipe</th>
+        <th>Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{ nombre }}</td>
+        <td> uppercase </td>
+        <td>{{ nombre | uppercase }}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>{{ nombre }}</td>
+        <td> lowercase </td>
+        <td>{{ nombre | lowercase }}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>{{ nombre }}</td>
+        <td> slice:3 </td> <!-- Primeras tres posiciones -->
+        <td>{{ nombre | slice:3 }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>{{ nombre }}</td>
+        <td> slice:0:3 </td> <!-- Ultimas tres posiciones -->
+        <td>{{ nombre | slice:0:3 }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>{{ arreglo }}</td>
+        <td> slice:1:5 </td> <!-- Ultimas tres posiciones -->
+        <td>{{ arreglo | slice:1:5 }}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>{{ pi }}</td>
+        <td> number:'3.0-0' </td> <!-- Tres numeros en los enteros -->
+        <td>{{ pi | number:'3.0-0'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>{{ pi }}</td>
+        <td> number:'1.0-2' </td> <!-- Un numero y dos decimales -->
+        <td>{{ pi | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>{{ a }}</td>
+        <td> percent </td> <!-- Un numero y dos decimales -->
+        <td>{{ a | percent}}</td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>{{ a }}</td>
+        <td> percent:'2.2-2' </td> <!-- Dos números y min y max dos decimales -->
+        <td>{{ a | percent:'2.2-2'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>{{ salario }}</td>
+        <td> currency </td> <!-- currency -->
+        <td>{{ salario | currency }}</td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>{{ salario }}</td>
+        <td> currency: 'EUR' </td> <!-- currency -->
+        <td>{{ salario | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>{{ salario }}</td>
+        <td> currency:'EUR':true </td> <!-- currency -->
+        <td>{{ salario | currency:'EUR':true }}</td>
+      </tr>
+      <tr>
+        <th scope="row">11</th>
+        <td>{{ salario }}</td>
+        <td> currency:'EUR':true:'4.0-0' </td> <!-- currency -->
+        <td>{{ salario | currency:'EUR':true:'4.0-0' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">12</th>
+        <td>{{ salario }}</td>
+        <td> number:'.2-2' </td> <!-- currency -->
+        <td>{{ salario | number:'.2-2' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">13</th>
+        <td>{{ valorDePromesa }}</td>
+        <td>async </td> <!-- currency -->
+        <td>{{ valorDePromesa | async }}</td>
+      </tr>
+      <tr>
+        <th scope="row">14</th>
+        <td>{{ fecha }}</td>
+        <td>date </td> <!-- currency -->
+        <td>{{ fecha | date }}</td>
+      </tr>
+      <tr>
+        <th scope="row">15</th>
+        <td>{{ fecha }}</td>
+        <td>date:'medium' </td> <!-- currency -->
+        <td>{{ fecha | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">16</th>
+        <td>{{ fecha }}</td>
+        <td>date:'MMMM - dd' </td> <!-- currency -->
+        <td>{{ fecha | date:'MMMM - dd' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">17</th>
+        <td>{{ nombre2 }}</td>
+        <td>capitalizado </td> <!-- currency -->
+        <td>{{ nombre2 | capitalizado }}</td>
+      </tr>
+      <tr>
+        <th scope="row">18</th>
+        <td>{{ nombre2 }}</td>
+        <td>capitalizado:false </td> <!-- currency -->
+        <td>{{ nombre2 | capitalizado:false }}</td>
+      </tr>
+      <tr>
+        <th scope="row">19</th>
+        <td>{{ password }}</td>
+        <td>
+          password:{{activar}} 
+          <br>
+          <button (click)="activar = !activar" type="button" class="btn btn-outline-primary">
+            Activar/desactivar
+          </button>
+        </td> <!-- currency -->
+        <td>{{ password | password:activar }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Slice</h4>
+  <ul>
+    <li *ngFor="let item of arreglo | slice:3:20">
+      {{ item }}
+    </li>
+  </ul>
+
+  <h4>JSON</h4>
+  <pre>
+     {{heroe | json}}
+  </pre>
+
+  <h4>Youtube <small> video </small></h4>
+
+  <iframe width="560" height="315"  [src]="video | domSeguro:'https://www.youtube.com/embed/'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+ 
+</div>
+
